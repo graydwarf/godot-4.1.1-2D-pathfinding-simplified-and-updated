@@ -1,7 +1,7 @@
 # Poplava Note:
 ### I forked this branch from an early 4.0 beta version. This 4.1.1 version is greatly simplified because of new navigation features. I also added retry to improve chances of agents reaching their target. Some of the information down below is based on the original branch which I preserved and updated. Shout out to sjharb/NavigationServer2DTest. I stood on his shoulders.
 
-# godot-4.x-2D-pathfinding-with-navigationAgent2D
+# godot-4.1.1-2D-pathfinding-simplified-and-updated
 ### Godot NavigationServer2D test for Godot Engine 4.1.1.
 
 #### See the original developers 3.5 branch for old demo. 
