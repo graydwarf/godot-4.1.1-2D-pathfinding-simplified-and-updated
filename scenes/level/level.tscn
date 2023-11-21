@@ -1,0 +1,164 @@
+[gd_scene load_steps=16 format=3 uid="uid://dokktmwkp0iml"]
+
+[ext_resource type="PackedScene" uid="uid://bgxjgui13ackb" path="res://character/character.tscn" id="1"]
+[ext_resource type="Script" path="res://scenes/level/level.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://bckt82xpftbla" path="res://icon.png" id="5"]
+[ext_resource type="PackedScene" uid="uid://8crkol54e454" path="res://scenes/star/star.tscn" id="5_wb4ij"]
+[ext_resource type="PackedScene" uid="uid://cosytvyq6huna" path="res://scenes/obstacle/obstacle.tscn" id="6"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_afgcj"]
+vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(64, 64, 0, 64, 0, 0, 64, 0)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_1o10b"]
+vertices = PackedVector2Array(-32, 32, 32, 32, 32, -32, -32, -32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(64, 64, 0, 64, 0, 0, 64, 0)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_c7m3q"]
+vertices = PackedVector2Array(32, -32, -32, -32, -32, 32, 32, 32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(64, 64, 0, 64, 0, 0, 64, 0)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_284ar"]
+vertices = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(64, 64, 0, 64, 0, 0, 64, 0)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0kxbi"]
+vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(64, 64, 0, 64, 0, 0, 64, 0)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_gccf0"]
+vertices = PackedVector2Array(-32, 32, 32, 32, 32, -32, -32, -32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(64, 64, 0, 64, 0, 0, 64, 0)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_nhv37"]
+vertices = PackedVector2Array(32, -32, -32, -32, -32, 32, 32, 32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(64, 64, 0, 64, 0, 0, 64, 0)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_vw5xr"]
+vertices = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(64, 64, 0, 64, 0, 0, 64, 0)])
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7nn8y"]
+texture = ExtResource("5")
+texture_region_size = Vector2i(64, 64)
+0:0/next_alternative_id = 8
+0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_afgcj")
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/1/navigation_layer_0/polygon = SubResource("NavigationPolygon_1o10b")
+0:0/2 = 2
+0:0/2/flip_v = true
+0:0/2/navigation_layer_0/polygon = SubResource("NavigationPolygon_c7m3q")
+0:0/3 = 3
+0:0/3/flip_h = true
+0:0/3/flip_v = true
+0:0/3/navigation_layer_0/polygon = SubResource("NavigationPolygon_284ar")
+0:0/4 = 4
+0:0/4/transpose = true
+0:0/4/navigation_layer_0/polygon = SubResource("NavigationPolygon_0kxbi")
+0:0/5 = 5
+0:0/5/flip_h = true
+0:0/5/transpose = true
+0:0/5/navigation_layer_0/polygon = SubResource("NavigationPolygon_gccf0")
+0:0/6 = 6
+0:0/6/flip_v = true
+0:0/6/transpose = true
+0:0/6/navigation_layer_0/polygon = SubResource("NavigationPolygon_nhv37")
+0:0/7 = 7
+0:0/7/flip_h = true
+0:0/7/flip_v = true
+0:0/7/transpose = true
+0:0/7/navigation_layer_0/polygon = SubResource("NavigationPolygon_vw5xr")
+
+[sub_resource type="TileSet" id="5"]
+tile_size = Vector2i(64, 64)
+navigation_layer_0/layers = 1
+sources/1 = SubResource("TileSetAtlasSource_7nn8y")
+
+[node name="Level" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2")
+
+[node name="LevelTileMap" type="TileMap" parent="."]
+modulate = Color(0.141176, 0.141176, 0.141176, 1)
+z_index = -2
+tile_set = SubResource("5")
+format = 2
+layer_0/tile_data = PackedInt32Array(65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 1, 0, 65551, 1, 0, 65552, 1, 0, 65553, 1, 0, 65554, 1, 0, 65555, 1, 0, 65556, 1, 0, 65557, 1, 0, 65558, 1, 0, 65559, 1, 0, 131072, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131082, 1, 0, 131083, 1, 0, 131084, 1, 0, 131087, 1, 0, 131088, 1, 0, 131095, 1, 0, 196608, 1, 0, 196609, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196617, 1, 0, 196618, 1, 0, 196619, 1, 0, 196624, 1, 0, 196631, 1, 0, 262144, 1, 0, 262145, 1, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 262152, 1, 0, 262153, 1, 0, 262154, 1, 0, 262155, 1, 0, 262156, 1, 0, 262157, 1, 0, 262158, 1, 0, 262159, 1, 0, 262160, 1, 0, 262165, 1, 0, 262166, 1, 0, 262167, 1, 0, 262168, 1, 0, 262169, 1, 0, 327680, 1, 0, 327689, 1, 0, 327694, 1, 0, 327695, 1, 0, 327696, 1, 0, 327697, 1, 0, 327701, 1, 0, 327705, 1, 0, 393216, 1, 0, 393217, 1, 0, 393225, 1, 0, 393229, 1, 0, 393230, 1, 0, 393232, 1, 0, 393233, 1, 0, 393234, 1, 0, 393235, 1, 0, 393236, 1, 0, 393237, 1, 0, 393241, 1, 0, 458752, 1, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0, 458768, 1, 0, 458769, 1, 0, 458773, 1, 0, 458777, 1, 0, 524288, 1, 0, 524289, 1, 0, 524293, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524309, 1, 0, 524310, 1, 0, 524311, 1, 0, 524312, 1, 0, 524313, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589847, 1, 0, 655360, 1, 0, 655364, 1, 0, 655365, 1, 0, 655367, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 1, 0, 655373, 1, 0, 655376, 1, 0, 655383, 1, 0, 720896, 1, 0, 720901, 1, 0, 720903, 1, 0, 720905, 1, 0, 720906, 1, 0, 720907, 1, 0, 720908, 1, 0, 720909, 1, 0, 720911, 1, 0, 720912, 1, 0, 720919, 1, 0, 786432, 1, 0, 786433, 1, 0, 786434, 1, 0, 786435, 1, 0, 786436, 1, 0, 786437, 1, 0, 786438, 1, 0, 786439, 1, 0, 786441, 1, 0, 786442, 1, 0, 786443, 1, 0, 786444, 1, 0, 786445, 1, 0, 786446, 1, 0, 786447, 1, 0, 786448, 1, 0, 786455, 1, 0, 851974, 1, 0, 851975, 1, 0, 851976, 1, 0, 851977, 1, 0, 851978, 1, 0, 851991, 1, 0, 917512, 1, 0, 917526, 1, 0, 917527, 1, 0, 983048, 1, 0, 983049, 1, 0, 983050, 1, 0, 983051, 1, 0, 983052, 1, 0, 983053, 1, 0, 983054, 1, 0, 983055, 1, 0, 983056, 1, 0, 983057, 1, 0, 983058, 1, 0, 983059, 1, 0, 983060, 1, 0, 983061, 1, 0, 983062, 1, 0)
+
+[node name="CharacterContainer" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Character" parent="CharacterContainer" instance=ExtResource("1")]
+position = Vector2(896, 456)
+
+[node name="ObstacleContainer" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Obstacle" parent="ObstacleContainer" instance=ExtResource("6")]
+offset_left = 360.0
+offset_top = 200.0
+offset_right = 360.0
+offset_bottom = 200.0
+
+[node name="Obstacle2" parent="ObstacleContainer" instance=ExtResource("6")]
+offset_left = 692.0
+offset_top = 208.0
+offset_right = 692.0
+offset_bottom = 208.0
+
+[node name="Obstacle3" parent="ObstacleContainer" instance=ExtResource("6")]
+offset_left = 988.0
+offset_top = 320.0
+offset_right = 988.0
+offset_bottom = 320.0
+
+[node name="Obstacle4" parent="ObstacleContainer" instance=ExtResource("6")]
+offset_left = 864.0
+offset_top = 544.0
+offset_right = 864.0
+offset_bottom = 544.0
+
+[node name="Obstacle5" parent="ObstacleContainer" instance=ExtResource("6")]
+offset_left = 764.0
+offset_top = 684.0
+offset_right = 764.0
+offset_bottom = 684.0
+
+[node name="DebugMenu" type="Node2D" parent="."]
+
+[node name="Character Velocity" type="Label" parent="DebugMenu"]
+
+[node name="FollowMouseTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.05
+
+[node name="Star" parent="." instance=ExtResource("5_wb4ij")]
+unique_name_in_owner = true
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="timeout" from="FollowMouseTimer" to="." method="_on_follow_mouse_timer_timeout"]

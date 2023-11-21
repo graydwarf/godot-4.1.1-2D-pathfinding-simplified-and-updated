@@ -30,6 +30,12 @@ android/
 *.kra
 *.kra~
 
+
+
+# Mono-specific ignores
+/.mono
+data_*/
+
 #VS Code
 /.vscode
 

@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh1p0m5knjjr5"]
+
+[ext_resource type="Script" path="res://scenes/hud/hud.gd" id="1_016mg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jisyv"]
+font_size = 24
+
+[node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_016mg")
+
+[node name="ShowHelpAboutButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.5
+offset_top = -31.0
+offset_right = 48.5
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+text = "Help/About
+"
+
+[node name="FpsLabel" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -102.5
+offset_top = -73.0
+offset_right = 102.5
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "100"
+label_settings = SubResource("LabelSettings_jisyv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="ShowHelpAboutButton" to="." method="_on_show_help_about_button_pressed"]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgxjgui13ackb"]
+
+[ext_resource type="Script" path="res://character/character.gd" id="1_ripcr"]
+[ext_resource type="Texture2D" uid="uid://by3oap7u2vs5i" path="res://assets/character/character.png" id="2_sf8mw"]
+
+[sub_resource type="CircleShape2D" id="2"]
+radius = 18.0278
+
+[node name="Character" type="CharacterBody2D"]
+script = ExtResource("1_ripcr")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+unique_name_in_owner = true
+path_desired_distance = 50.0
+target_desired_distance = 50.0
+path_max_distance = 200.0
+path_postprocessing = 1
+avoidance_enabled = true
+radius = 16.0
+max_speed = 150.0
+debug_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("2")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_sf8mw")
+
+[node name="NavigationAgent2D2" type="NavigationAgent2D" parent="."]
+
+[node name="ProgressTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="Camera" type="Camera2D" parent="."]
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="timeout" from="ProgressTimer" to="." method="_on_progress_timer_timeout"]

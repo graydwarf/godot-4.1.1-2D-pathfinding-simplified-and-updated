@@ -1,0 +1,95 @@
+[gd_scene load_steps=2 format=3 uid="uid://brwth2pdjsv2n"]
+
+[ext_resource type="Script" path="res://scenes/help-about-screen/help-about-screen.gd" id="1_d265c"]
+
+[node name="HelpAboutScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d265c")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.145098, 0.145098, 0.145098, 0.964706)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ControllerHints" type="Label" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 0
+text = "# Author : Shaun Harbison
+# MIT License : 2022
+# 3.x: https://github.com/cyborg-kenneth/pathfinding-demo/tree/main
+--------------------------------------------------------------------------------
+# 4.x Revisions : Poplava
+
+About:
+Pathfinding with NavigationAgent, NavigationObstacles, and TileMap
+
+Directions: 
+- LMB to set destination
+- Hold LMB to continuously set destination
+- Drag static objects to block path before and during pathfinding
+- RMB add additional agents
+- Try blocking the path of the agent and watch as it tries to figure things out
+
+Notes:
+- Massive overhaul from 3.x to 4.x because new navigation features in 4.x  make things far simpler. Entire pathfinding workflow is different except the use of Navigation nodes.
+- Removed zoom capabilites that were in the 3.x project. 
+- Added new workflows that will have the agent try different things if their path is blocked such as move randomly and then retry the target destination. This is situational logic so I didn't invest too heavily. Agents can be seen doing stupid things for a bit but they consistently and eventually find the target.
+
+Notes & Known Issues:
+- New units don't automatically detect and move until the destination is placed again.
+- Units can be pushed through walls and they'll cheat a little but if they can squeeze by. This should be fixable using physics and some dense walls. It's situational though.
+- The nav system does not map paths around navObstacle nodes. It tries it's best to move around them while following the path. This is good when things are moving around that block the agent mid-path but it makes the initial path finding run right into navObstacles.
+- Haven't worked out a solution for getting the agent to end centered on the star just yet. Issue has to do with the stop distance vars. If we set it to small, we experience other issues.
+- No idea how many units it will support before performance degrades. Avoidance is expensive so I'd imagine you wouldn't want this type of path finding if you're going to have hundreds of units. Although, I did a couple hundred and it stayed above 60 FPS which surprised me. Demo gets pretty clunky because our main character has the camera so movement gets congested. 
+- There is a glitch issue where an agent can get stuck perfectly in the middle of a fork so it freaks out and flickers between both decisions. 
+- I may or may not fix all listed issues and I may or may not remember to update this when I do so if something is off, that is likely why.
+
+
+
+
+
+
+
+
+
+
+
+
+"
+autowrap_mode = 2
+
+[node name="CloseButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -66.0
+offset_top = -98.0
+offset_right = 66.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Close"
+
+[connection signal="pressed" from="CloseButton" to="." method="_on_hide_button_pressed"]

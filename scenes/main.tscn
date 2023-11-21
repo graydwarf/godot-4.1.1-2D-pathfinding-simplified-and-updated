@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://er42ofm50kas"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://bh1p0m5knjjr5" path="res://scenes/hud/hud.tscn" id="2_qmchb"]
+[ext_resource type="PackedScene" uid="uid://dokktmwkp0iml" path="res://scenes/level/level.tscn" id="3_bls5y"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -500.0
+offset_right = 48.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2")
+
+[node name="Hud" parent="." instance=ExtResource("2_qmchb")]
+unique_name_in_owner = true
+
+[node name="Level" parent="." instance=ExtResource("3_bls5y")]
+layout_mode = 1
